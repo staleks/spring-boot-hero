@@ -1,0 +1,23 @@
+apply plugin: 'java-library'
+
+dependencies {
+    api project(":core")
+
+    implementation 'org.springframework:spring-context'
+
+    //~ mapstruct
+    implementation("org.mapstruct:mapstruct:${mapstructVersion}")
+    implementation("org.mapstruct:mapstruct-processor:${mapstructVersion}")
+    annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
+
+    //~ Spring Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    //~ DB
+    implementation("org.liquibase:liquibase-core:${liquibaseVersion}")
+    implementation("com.zaxxer:HikariCP:${hikariCPVersion}")
+    runtimeOnly("mysql:mysql-connector-java:${mysqlJDBCConnectorVersion}")
+
+
+}

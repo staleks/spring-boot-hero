@@ -1,0 +1,23 @@
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+}
+
+configurations {
+    implementation.exclude module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':adapters:persistence')
+    implementation project(':adapters:web')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-undertow'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+
+}
+
+jar {
+    enabled = false
+}

@@ -1,0 +1,77 @@
+plugins {
+	id 'org.springframework.boot' version "${springBootVersion}"
+	id 'io.spring.dependency-management' version "${springDependencyManagement}"
+	id 'java'
+}
+
+allprojects {
+    group = 'com.example'
+    version = '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'io.spring.dependency-management'
+
+	sourceCompatibility = JavaVersion.VERSION_11
+	targetCompatibility = JavaVersion.VERSION_11
+
+	compileJava.options.encoding = "UTF-8"
+	compileTestJava.options.encoding = "UTF-8"
+
+	configurations {
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+
+	repositories {
+		mavenCentral()
+		maven { url 'https://repo.spring.io/milestone' }
+		maven { url 'https://repo.spring.io/snapshot' }
+	}
+
+	dependencyManagement {
+		imports {
+			// import BOM
+			mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+			mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+		}
+	}
+
+	dependencies {
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	}
+
+	test {
+		useJUnitPlatform()
+
+		testLogging {
+			events "passed", "skipped", "failed"
+		}
+
+		afterSuite { desc, result ->
+			if (!desc.parent) {
+				println "\nTest result: ${result.resultType}"
+				println "Test summary: ${result.testCount} tests, " +
+						"${result.successfulTestCount} succeeded, " +
+						"${result.failedTestCount} failed, " +
+						"${result.skippedTestCount} skipped"
+			}
+
+		}
+
+	}
+
+	// exclude warnings from command-line
+	tasks.withType(Javadoc).all { enabled = false }
+
+
+}
+
+wrapper {
+	gradleVersion = '7.4'
+}

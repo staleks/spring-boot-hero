@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="01" author="aleksandar.stoisavljevic@novacode.rs">
+
+        <createTable tableName="tbl_country">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="alpha_2" type="varchar(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="alpha_3" type="varchar(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="true">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createIndex indexName="idx_country"
+                     tableName="tbl_country"
+                     unique="true">
+            <column name="name" type="varchar(255)" descending="false"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="02" author="aleksandar.stoisavljevic@novacode.rs">
+        <createTable tableName="tbl_city">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="zip_code" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="true">
+                <constraints nullable="false" />
+            </column>
+            <column name="country_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="tbl_city" baseColumnNames="country_id"
+                                 constraintName="fk_city_country" referencedTableName="tbl_country"
+                                 referencedColumnNames="id" onDelete="NO ACTION" onUpdate="CASCADE" />
+
+        <createIndex indexName="idx_city"
+                     tableName="tbl_city"
+                     unique="true">
+            <column name="name" type="varchar(255)" descending="false"/>
+        </createIndex>
+
+    </changeSet>
+
+
+</databaseChangeLog>

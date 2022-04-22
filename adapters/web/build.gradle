@@ -1,0 +1,33 @@
+apply plugin: 'java-library'
+
+configurations {
+    compile.exclude module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+    api project(':core')
+
+    implementation 'org.springframework:spring-context'
+
+    //~ Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-undertow'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+
+    //~ micrometer
+    implementation 'io.micrometer:micrometer-core'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    //~ test
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit' // excluding junit 4
+        exclude group: 'org.junit.vintage'
+    }
+    testImplementation 'org.springframework:spring-test'
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitJupiterVersion}"
+
+
+
+}
