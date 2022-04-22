@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Import;
         PersistenceConfig.class
 })
 public class PersistenceAdapterFactory {
-
     @Bean
     public CountryPersistencePort countryPersistencePort(final JpaCountryRepository jpaCountryRepository) {
         return new CountryPersistenceAdapter(jpaCountryRepository);

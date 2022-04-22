@@ -6,10 +6,10 @@ import com.example.demo.domain.geo.Country;
 
 import java.util.Optional;
 
-public interface CountryPersistencePort {
+public interface CountryQuery {
+
     Optional<Country> findById(final Long countryId);
 
-    PagingResponse<Country> findAll(final PagingRequest pagingRequest);
+    PagingResponse<Country> findAll(PagingRequest pagingRequest);
 
-    Country create(final Country country);
 }
