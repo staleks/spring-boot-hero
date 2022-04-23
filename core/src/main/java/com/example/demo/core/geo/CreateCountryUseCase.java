@@ -1,4 +1,4 @@
-package com.example.demo.core;
+package com.example.demo.core.geo;
 
 import com.example.demo.domain.geo.Country;
 

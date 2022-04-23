@@ -1,18 +1,18 @@
-package com.example.demo.persistence.adapter.geo;
+package com.example.demo.persistence.geo.adapter;
 
-import com.example.demo.core.CountryPersistencePort;
+import com.example.demo.core.geo.CountryPersistencePort;
 import com.example.demo.core.util.PagingRequest;
 import com.example.demo.core.util.PagingResponse;
 import com.example.demo.domain.geo.Country;
-import com.example.demo.persistence.model.geo.JpaCountry;
-import com.example.demo.persistence.repository.geo.JpaCountryRepository;
+import com.example.demo.persistence.geo.model.JpaCountry;
+import com.example.demo.persistence.geo.repository.JpaCountryRepository;
 import com.example.demo.persistence.util.PageRequestUtil;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.example.demo.persistence.mapper.geo.CountryMapper.COUNTRY_JPA_ADAPTER_MAPPER;
+import static com.example.demo.persistence.geo.mapper.CountryMapper.COUNTRY_JPA_ADAPTER_MAPPER;
 
 @RequiredArgsConstructor
 public class CountryPersistenceAdapter implements CountryPersistencePort {

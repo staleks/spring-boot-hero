@@ -19,14 +19,14 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"com.example.demo.persistence.repository"})
+@EnableJpaRepositories(basePackages = {"com.example.demo.persistence.geo.repository"})
 public class PersistenceConfig {
 
     private static final String PERSISTENCE_CONFIG_POOL_NAME = "demoCP";
     private static final String PERSISTENCE_ENTITY_UNIT_NAME = "demoPU";
 
     private static final String[] MODEL_PACKAGES_TO_SCAN = {
-            "com.example.demo.persistence.model"
+            "com.example.demo.persistence.geo.model"
     };
 
     @Value("${spring.datasource.driver-class-name}")

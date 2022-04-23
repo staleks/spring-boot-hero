@@ -23,4 +23,14 @@ public class City {
         return new City(zipCode, name, country);
     }
 
+    public static City of(final Long id, final String zipCode, final String name, final boolean active, final Country country) {
+        City city = new City();
+        city.setId(id);
+        city.setZipCode(zipCode);
+        city.setName(name);
+        city.setActive(active);
+        city.setCountry(country);
+        return city;
+    }
+
 }

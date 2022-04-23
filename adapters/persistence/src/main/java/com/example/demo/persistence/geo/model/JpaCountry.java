@@ -1,4 +1,4 @@
-package com.example.demo.persistence.model.geo;
+package com.example.demo.persistence.geo.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

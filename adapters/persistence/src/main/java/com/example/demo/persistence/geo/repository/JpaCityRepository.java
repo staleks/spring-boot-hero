@@ -1,6 +1,6 @@
-package com.example.demo.persistence.repository.geo;
+package com.example.demo.persistence.geo.repository;
 
-import com.example.demo.persistence.model.geo.JpaCity;
+import com.example.demo.persistence.geo.model.JpaCity;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

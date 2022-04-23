@@ -5,6 +5,7 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
     <changeSet id="03" author="aleksandar.stoisavljevic@novacode.rs">
+        <comment>Inserting Country records</comment>
         <sql>
             INSERT INTO tbl_country(id, alpha_2, alpha_3, name, active) VALUES (1, 'AF', 'AFG', 'Afganistan', 0);
             INSERT INTO tbl_country(id, alpha_2, alpha_3, name, active) VALUES (2, 'AX', 'ALA', 'Aland Islands', 0);
@@ -253,6 +254,21 @@
             INSERT INTO tbl_country(id, alpha_2, alpha_3, name, active) VALUES (245, 'YE', 'YEM', 'Yemen', 0);
             INSERT INTO tbl_country(id, alpha_2, alpha_3, name, active) VALUES (246, 'ZM', 'ZMB', 'Zambia', 0);
             INSERT INTO tbl_country(id, alpha_2, alpha_3, name, active) VALUES (247, 'ZW', 'ZWE', 'Zimbabwe', 0);
+        </sql>
+    </changeSet>
+
+    <changeSet id="04" author="aleksandar.stoisavljevic@novacode.rs">
+        <comment>Inserting City records</comment>
+        <sql>
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (1, '11000', 'Beograd', 1, 197);
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (2, '21000', 'Novi Sad', 1, 197);
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (3, '24000', 'Subotica', 1, 197);
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (4, '18000', 'Nis', 1, 197);
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (5, '10000', 'Zagreb', 1, 58);
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (6, '51000', 'Rijeka', 1, 58);
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (7, '1000', 'Ljubljana', 1, 202);
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (8, '2000', 'Maribor', 1, 202);
+            INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (9, '81000', 'Podgorica', 1, 148);
         </sql>
     </changeSet>
 

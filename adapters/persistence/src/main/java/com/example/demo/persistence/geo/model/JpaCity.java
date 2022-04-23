@@ -1,7 +1,8 @@
-package com.example.demo.persistence.model.geo;
+package com.example.demo.persistence.geo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class JpaCity {
 
     @Column(name = "active", nullable = false)
     private boolean active;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
     private JpaCountry country;
 

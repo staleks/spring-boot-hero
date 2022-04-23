@@ -1,7 +1,7 @@
 package com.example.demo.web.endpoint;
 
-import com.example.demo.core.CountryQuery;
-import com.example.demo.core.CreateCountryUseCase;
+import com.example.demo.core.geo.CountryQuery;
+import com.example.demo.core.geo.CreateCountryUseCase;
 import com.example.demo.domain.geo.Country;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

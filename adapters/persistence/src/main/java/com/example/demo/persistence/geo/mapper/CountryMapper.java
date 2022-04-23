@@ -1,7 +1,7 @@
-package com.example.demo.persistence.mapper.geo;
+package com.example.demo.persistence.geo.mapper;
 
 import com.example.demo.domain.geo.Country;
-import com.example.demo.persistence.model.geo.JpaCountry;
+import com.example.demo.persistence.geo.model.JpaCountry;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

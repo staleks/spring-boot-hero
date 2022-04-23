@@ -1,7 +1,9 @@
 package com.example.demo.web.config;
 
-import com.example.demo.core.CountryQuery;
-import com.example.demo.core.CreateCountryUseCase;
+import com.example.demo.core.geo.CityQuery;
+import com.example.demo.core.geo.CountryQuery;
+import com.example.demo.core.geo.CreateCountryUseCase;
+import com.example.demo.web.endpoint.CityController;
 import com.example.demo.web.endpoint.CountryController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +15,8 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 public class RestFactoryConfiguration {
 
-    private static String[] allowedMethods = { "OPTIONS", "HEAD", "GET", "PUT", "POST", "DELETE", "PATCH" };
-    private static String[] exposedHeaders = { "X-Total", "X-Total-Pages", "X-Page", "X-Size" };
+    private static String[] allowedMethods = {"OPTIONS", "HEAD", "GET", "PUT", "POST", "DELETE", "PATCH"};
+    private static String[] exposedHeaders = {"X-Total", "X-Total-Pages", "X-Page", "X-Size"};
 
     @Bean
     public CorsFilter corsFilter() {
@@ -25,10 +27,10 @@ public class RestFactoryConfiguration {
         config.addAllowedOrigin("*");
         config.addAllowedOriginPattern("*");
         config.addAllowedHeader("*");
-        for (String allowedMethodItem: allowedMethods) {
+        for(String allowedMethodItem : allowedMethods) {
             config.addAllowedMethod(allowedMethodItem);
         }
-        for (String exposedHeader: exposedHeaders) {
+        for(String exposedHeader : exposedHeaders) {
             config.addExposedHeader(exposedHeader);
         }
         source.registerCorsConfiguration("/**", config);
@@ -53,5 +55,11 @@ public class RestFactoryConfiguration {
                                                final CreateCountryUseCase createCountryUseCase) {
         return new CountryController(countryQuery, createCountryUseCase);
     }
+
+    @Bean
+    public CityController cityController(final CityQuery cityQuery) {
+        return new CityController(cityQuery);
+    }
+
 
 }
