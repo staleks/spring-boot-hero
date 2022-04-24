@@ -1,9 +1,12 @@
 package com.example.demo.persistence.config;
 
+import com.example.demo.core.cms.PostCommentPersistencePort;
 import com.example.demo.core.cms.PostPersistencePort;
 import com.example.demo.core.geo.CityPersistencePort;
 import com.example.demo.core.geo.CountryPersistencePort;
+import com.example.demo.persistence.cms.adapter.PostCommentPersistenceAdapter;
 import com.example.demo.persistence.cms.adapter.PostPersistenceAdapter;
+import com.example.demo.persistence.cms.repository.JpaPostCommentRepository;
 import com.example.demo.persistence.cms.repository.JpaPostRepository;
 import com.example.demo.persistence.geo.adapter.CityPersistenceAdapter;
 import com.example.demo.persistence.geo.adapter.CountryPersistenceAdapter;
@@ -31,6 +34,11 @@ public class PersistenceAdapterFactory {
     @Bean
     public PostPersistencePort postPersistencePort(final JpaPostRepository jpaPostRepository) {
         return new PostPersistenceAdapter(jpaPostRepository);
+    }
+
+    @Bean
+    public PostCommentPersistencePort postCommentPersistencePort(final JpaPostCommentRepository jpaPostCommentRepository) {
+        return new PostCommentPersistenceAdapter(jpaPostCommentRepository);
     }
 
 }

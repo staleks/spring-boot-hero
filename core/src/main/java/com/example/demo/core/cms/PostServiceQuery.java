@@ -19,7 +19,7 @@ public class PostServiceQuery implements PostQuery {
 
     @Override
     public PagingResponse<Post> findAll(final PagingRequest pagingRequest) {
-        return null;
+        return postPersistencePort.findAll(pagingRequest);
     }
 
 }

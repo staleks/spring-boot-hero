@@ -5,7 +5,7 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
     <changeSet id="01" author="aleksandar.stoisavljevic@novacode.rs">
-
+        <comment>DDL for Country definition</comment>
         <createTable tableName="tbl_country">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
@@ -32,6 +32,7 @@
     </changeSet>
 
     <changeSet id="02" author="aleksandar.stoisavljevic@novacode.rs">
+        <comment>DDL for City definition</comment>
         <createTable tableName="tbl_city">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" unique="true" primaryKey="true"/>

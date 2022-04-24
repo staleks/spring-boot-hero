@@ -1,9 +1,11 @@
 package com.example.demo.web.config;
 
+import com.example.demo.core.cms.PostCommentQuery;
 import com.example.demo.core.cms.PostQuery;
 import com.example.demo.core.geo.CityQuery;
 import com.example.demo.core.geo.CountryQuery;
 import com.example.demo.core.geo.CreateCountryUseCase;
+import com.example.demo.web.endpoint.cms.PostCommentController;
 import com.example.demo.web.endpoint.cms.PostController;
 import com.example.demo.web.endpoint.geo.CityController;
 import com.example.demo.web.endpoint.geo.CountryController;
@@ -67,6 +69,10 @@ public class RestFactoryConfiguration {
     @Bean
     public PostController postController(final PostQuery postQuery) {
         return new PostController(postQuery);
+    }
+    @Bean
+    public PostCommentController postCommentController(final PostCommentQuery postCommentQuery) {
+        return new PostCommentController(postCommentQuery);
     }
 
 }

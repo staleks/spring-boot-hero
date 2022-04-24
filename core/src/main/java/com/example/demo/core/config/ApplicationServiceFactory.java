@@ -1,5 +1,8 @@
 package com.example.demo.core.config;
 
+import com.example.demo.core.cms.PostCommentPersistencePort;
+import com.example.demo.core.cms.PostCommentQuery;
+import com.example.demo.core.cms.PostCommentServiceQuery;
 import com.example.demo.core.cms.PostPersistencePort;
 import com.example.demo.core.cms.PostQuery;
 import com.example.demo.core.cms.PostServiceQuery;
@@ -35,6 +38,11 @@ public class ApplicationServiceFactory {
     @Bean
     PostQuery postQuery(final PostPersistencePort postPersistencePort) {
         return new PostServiceQuery(postPersistencePort);
+    }
+
+    @Bean
+    PostCommentQuery postCommentQuery(final PostCommentPersistencePort postCommentPersistencePort) {
+        return new PostCommentServiceQuery(postCommentPersistencePort);
     }
 
 }

@@ -33,7 +33,15 @@
                 <constraints nullable="false"/>
             </column>
             <column name="body" type="varchar(255)" />
+            <column name="post_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
         </createTable>
+
+        <addForeignKeyConstraint baseTableName="tbl_post_comment" baseColumnNames="post_id"
+                                 constraintName="fk_post_comment_post" referencedTableName="tbl_post"
+                                 referencedColumnNames="id" onDelete="NO ACTION" onUpdate="CASCADE" />
+
     </changeSet>
 
 </databaseChangeLog>
