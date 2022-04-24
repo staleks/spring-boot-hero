@@ -30,6 +30,10 @@ public class JpaCity {
     @JoinColumn(name = "country_id")
     private JpaCountry country;
 
+    public JpaCity() {
+        //~ required due to ORMs
+    }
+
     public JpaCountry getCountry() {
         return country;
     }

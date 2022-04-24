@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="07" author="aleksandar.stoisavljevic@novacode.rs">
+        <comment>Inserting Post records</comment>
+        <sql>
+            INSERT INTO tbl_post(id, user_id, title, body) VALUES (1, 1, 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', 'quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto');
+            INSERT INTO tbl_post(id, user_id, title, body) VALUES (2, 1, 'qui est esse', 'st rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla');
+        </sql>
+    </changeSet>
+
+    <changeSet id="08" author="aleksandar.stoisavljevic@novacode.rs">
+        <comment>Inserting PostComment records</comment>
+        <sql>
+            INSERT INTO tbl_post_comment(id, name, email, body) VALUES (1, 'et fugit eligendi deleniti quidem qui sint nihil autem', 'presley.mueller@myrl.com', 'doloribus at sed quis culpa deserunt consectetur qui praesentium accusamus fugiat dicta voluptatem rerum ut voluptate autem voluptatem repellendus aspernatur dolorem in');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

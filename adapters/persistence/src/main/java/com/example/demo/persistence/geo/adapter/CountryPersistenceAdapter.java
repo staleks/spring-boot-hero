@@ -23,8 +23,7 @@ public class CountryPersistenceAdapter implements CountryPersistencePort {
     public Optional<Country> findById(final Long countryId) {
         var jpaCountry = jpaCountryRepository.findById(countryId);
         if (jpaCountry.isPresent()) {
-            var jpaCountryItem = jpaCountry.get();
-            return Optional.of(COUNTRY_JPA_ADAPTER_MAPPER.entityToDomain(jpaCountryItem));
+            return Optional.of(COUNTRY_JPA_ADAPTER_MAPPER.entityToDomain(jpaCountry.get()));
         } else {
             return Optional.empty();
         }

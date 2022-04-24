@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
-    <changeSet id="03" author="aleksandar.stoisavljevic@novacode.rs">
+    <changeSet id="05" author="aleksandar.stoisavljevic@novacode.rs">
         <comment>Inserting Country records</comment>
         <sql>
             INSERT INTO tbl_country(id, alpha_2, alpha_3, name, active) VALUES (1, 'AF', 'AFG', 'Afganistan', 0);
@@ -257,7 +257,7 @@
         </sql>
     </changeSet>
 
-    <changeSet id="04" author="aleksandar.stoisavljevic@novacode.rs">
+    <changeSet id="06" author="aleksandar.stoisavljevic@novacode.rs">
         <comment>Inserting City records</comment>
         <sql>
             INSERT INTO tbl_city(id, zip_code, name, active, country_id) VALUES (1, '11000', 'Beograd', 1, 197);

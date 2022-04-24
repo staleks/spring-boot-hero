@@ -12,7 +12,7 @@ public class Post {
     private Long userId;
     private String title;
     private String body;
-    private Set<Comment> comments;
+    private Set<PostComment> comments;
 
     private Post(final Long userId, final String title, final String body) {
         this.userId = userId;
@@ -24,7 +24,7 @@ public class Post {
         return new Post(userId, title, body);
     }
 
-    public void addComment(final Comment comment) {
+    public void addComment(final PostComment comment) {
         if (comments == null) {
             this.comments = new HashSet<>();
         }

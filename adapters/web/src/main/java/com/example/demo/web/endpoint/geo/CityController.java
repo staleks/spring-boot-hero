@@ -1,4 +1,4 @@
-package com.example.demo.web.endpoint;
+package com.example.demo.web.endpoint.geo;
 
 import com.example.demo.core.geo.CityQuery;
 import com.example.demo.core.util.PagingRequest;

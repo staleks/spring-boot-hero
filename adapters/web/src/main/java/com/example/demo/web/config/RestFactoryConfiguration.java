@@ -1,10 +1,12 @@
 package com.example.demo.web.config;
 
+import com.example.demo.core.cms.PostQuery;
 import com.example.demo.core.geo.CityQuery;
 import com.example.demo.core.geo.CountryQuery;
 import com.example.demo.core.geo.CreateCountryUseCase;
-import com.example.demo.web.endpoint.CityController;
-import com.example.demo.web.endpoint.CountryController;
+import com.example.demo.web.endpoint.cms.PostController;
+import com.example.demo.web.endpoint.geo.CityController;
+import com.example.demo.web.endpoint.geo.CountryController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -61,5 +63,10 @@ public class RestFactoryConfiguration {
         return new CityController(cityQuery);
     }
 
+
+    @Bean
+    public PostController postController(final PostQuery postQuery) {
+        return new PostController(postQuery);
+    }
 
 }

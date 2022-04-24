@@ -1,7 +1,10 @@
 package com.example.demo.persistence.config;
 
+import com.example.demo.core.cms.PostPersistencePort;
 import com.example.demo.core.geo.CityPersistencePort;
 import com.example.demo.core.geo.CountryPersistencePort;
+import com.example.demo.persistence.cms.adapter.PostPersistenceAdapter;
+import com.example.demo.persistence.cms.repository.JpaPostRepository;
 import com.example.demo.persistence.geo.adapter.CityPersistenceAdapter;
 import com.example.demo.persistence.geo.adapter.CountryPersistenceAdapter;
 import com.example.demo.persistence.geo.repository.JpaCityRepository;
@@ -23,6 +26,11 @@ public class PersistenceAdapterFactory {
     @Bean
     public CityPersistencePort cityPersistencePort(final JpaCountryRepository jpaCountryRepository, final JpaCityRepository jpaCityRepository) {
         return new CityPersistenceAdapter(jpaCountryRepository, jpaCityRepository);
+    }
+
+    @Bean
+    public PostPersistencePort postPersistencePort(final JpaPostRepository jpaPostRepository) {
+        return new PostPersistenceAdapter(jpaPostRepository);
     }
 
 }

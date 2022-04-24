@@ -1,5 +1,8 @@
 package com.example.demo.core.config;
 
+import com.example.demo.core.cms.PostPersistencePort;
+import com.example.demo.core.cms.PostQuery;
+import com.example.demo.core.cms.PostServiceQuery;
 import com.example.demo.core.geo.CityPersistencePort;
 import com.example.demo.core.geo.CityQuery;
 import com.example.demo.core.geo.CityServiceQuery;
@@ -27,6 +30,11 @@ public class ApplicationServiceFactory {
     @Bean
     CityQuery cityQuery(final CityPersistencePort cityPersistencePort) {
         return new CityServiceQuery(cityPersistencePort);
+    }
+
+    @Bean
+    PostQuery postQuery(final PostPersistencePort postPersistencePort) {
+        return new PostServiceQuery(postPersistencePort);
     }
 
 }
